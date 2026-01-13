@@ -10,8 +10,10 @@
     <title>Shalom & Tommy's Cocktail Soirée</title>
 </head>
 <body>
-    <div>
+    <div id="header-section">
+        <img src="./assets/cocktail1.png" alt="Cocktail" class="header-image">
         <h1 id="title">Shalom & Tommy's Cocktail Soirée</h1>
+        <img src="./assets/cocktail2.png" alt="Cocktail" class="header-image">
     </div>
     <!-- Intro -->
     <div>
@@ -23,9 +25,9 @@
     <div>
         <h2>Date & Location</h2>
         <hr class="hr"/>
-        <ul>
+        <ul style="list-style-type: none; padding-left: 0; text-align: center;">
         <li>8pm to 2am, Saturday January 17th, 2026</li>
-        <li>1201-25 Grenville Street, Toronto ON (Closest Intersection @Yonge-College)</li>
+        <li>Unit 1201, 25 Grenville Street, Toronto ON (Closest Intersection @Yonge-College)</li>
         <li>Lobby Buzzer is 0179</li>
         </ul>
     </div>
@@ -53,20 +55,12 @@
 
         <!-- Fallback / primary action -->
         <p>
-            <a href="./assets/cocktail-menu.pdf" target="_blank" rel="noopener">
+            <a href="./assets/Cocktail-Menu.pdf" target="_blank" rel="noopener">
                 Open the cocktail recipe menu (PDF)
-            </a>
-            &nbsp;·&nbsp;
-            <a href="./assets/cocktail-menu.pdf" download>
-                Download
             </a>
         </p>
 
-        <iframe
-            src="./assets/Cocktail Menu v2 (no details).pdf#view=FitH"
-            title="Cocktail recipe menu (PDF)"
-            style="width: 100%; height: 80vh; border: 1px solid #ccc; border-radius: 8px;"
-        ></iframe>
+        <iframe id="menu" src="./assets/Cocktail-Menu.pdf#view=FitH" title="Cocktail recipe menu (PDF)"></iframe>
     </div>
     <!-- Afterwards -->
     <div>
@@ -79,11 +73,10 @@
         <h2>RSVP</h2>
         <hr class="hr"/>
         <p>Etransfer $20 to tommytang111@hotmail.com to RSVP and check for your name on the guest list below.</p>
+        <button type="button" onclick="window.location.href='./guests.html'">See Guest List</button>
     </div>
     <!-- Who's Going -->
-    <div id="button1">
-        <button type="button" onclick="window.location.href=''./guests.html'">See Guest List</a>
-    </div>
+        
     <!-- Contact -->
     <div>
         <h2>Contact Us</h2>

@@ -1,4 +1,12 @@
 /* GLOBAL */
+:root {
+    --primary-purple: #8675A9;
+    --secondary-purple: #A79AC7;
+    --light-purple: #E5E0FF;
+    --link-blue: #1a73e8;
+    --accent-pink: #FFF2F2;
+}
+
 html {
     font-family: "Cormorant Garamond", serif;
     font-optical-sizing: auto;
@@ -7,102 +15,267 @@ html {
     font-size: 16px;
     margin: 0;
     background: linear-gradient(180deg,
-        #8675A9 0%,
-        #A79AC7 45%,
-        #E5E0FF 100%);
+        var(--primary-purple) 0%,
+        var(--secondary-purple) 45%,
+        var(--light-purple) 100%);
+    background-attachment: fixed;
     min-height: 100%;
     color: black;
+    scroll-behavior: smooth;
 }
 
 body {
     min-height: 100vh;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Container for better layout */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Improved sections */
+body > div {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body > div:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .hr {
-   border: black solid;
-   border-width: 0.05rem;
-   margin:0.05rem
+   border: 0;
+   height: 1px;
+   background: rgba(0, 0, 0, 0.1);
+   margin: 1rem 0;
 }
 
 h1 {
-    font-size:2rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
+    letter-spacing: 0.5px;
 }
 
 h2 {
-    margin-top: 0.05rem;
-    margin-bottom: 0rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.3px;
+    font-size: 1.8rem;
 }
 
 button {
   font: inherit;
-  padding: 10px 16px;
+  padding: 12px 24px;
   border-radius: 12px;
   border: 2px solid #7286D3;
-  background: #E5E0FF;
+  background: var(--light-purple);
   cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 button:hover {
-  background: #FFF2F2;
+  background: var(--accent-pink);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-a {
+button:active {
+  transform: translateY(0);
+}
+
+button:focus-visible {
+  outline: 2px solid #7286D3;
+  outline-offset: 3px;
+}
+
+.event {
     text-decoration: none;
-    color: #1a73e8;
+    color: var(--link-blue);
     font-weight: 400;
     font-size: 25px;
+    transition: all 0.3s ease;
 }
 
-a:hover {
+.event:hover {
     color: #0b57d0;
     font-weight: 900;
 }
 
-a:focus-visible {
+.event:focus-visible {
   outline: 2px solid #0b57d0;
   outline-offset: 3px;
 }
 
 #party1 {
-    background-color: #FFF2F2; 
+    background-color: var(--accent-pink); 
     border-radius: 15px; 
-    margin: 10px 15rem;
-    padding:5px;
+    margin: 10px 10%;
+    padding: 5px;
+    transition: all 0.3s ease;
 }
 
 #party1:hover {
-    background-color: #E5E0FF;
+    background-color: var(--light-purple);
+    transform: translateY(-2px);
 }
 
 #title {
     text-align: center;
 }
 
+#header-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.header-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    animation: float 3s ease-in-out infinite;
+    /* Remove any background */
+    background: transparent;
+    /* Ensure smooth rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
 /* Cocktail Party Specific */
 .question {
     font-weight: 900;
     font-style: italic;
+    margin-top: 1rem;
 }
 
-#button1 {
+#menu {
+   width: 100%; 
+   height: 80vh; 
+   border: 1px solid #ccc; 
+   border-radius: 8px;
+}
+
+/* Improved link styling for PDF */
+a {
+    color: var(--link-blue);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #0b57d0;
+    text-decoration: underline;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+}
+
+footer {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    padding: 1rem;
     text-align: center;
 }
 
 #footer {
-    margin-top:0px;
-    font-size:12px;
+    margin: 0;
+    font-size: 12px;
 }
 
 /* Guest Specific */
 #guests {
     text-align: center;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#guests h1 {
+    margin-top: 0;
 }
 
 #guests ul {
-  display: inline-block; /* allows the whole list block to be centered */
-  text-align: left;      /* keeps the list text nicely aligned */
-  padding-left: 0;       /* remove browser default indent */
-  margin: 0;             /* optional: remove default margins */
-  list-style-position: inside; /* puts bullets inside the block */
+  display: inline-block;
+  text-align: left;
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+  max-width: 400px;
+}
+
+#guests li {
+  padding: 12px 20px;
+  margin: 8px 0;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-purple);
+  transition: all 0.3s ease;
+}
+
+#guests li:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateX(5px);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+    
+    body {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    body > div, #guests {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    
+    iframe {
+        height: 60vh !important;
+    }
 }
