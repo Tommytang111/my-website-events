@@ -1,13 +1,38 @@
+/* GLOBAL */
+html {
+    font-family: "Cormorant Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 15pt;
+    background-color: #D3CEDF;
+    color: black;
+}
+
+.hr {
+   border: #9CB4CC solid;
+   border-radius: 
+}
+
+h1 {
+    font-size:2rem;
+}
+
+h2 {
+    margin-bottom:0.25rem;
+}
+
+
 a {
     text-decoration: none;
     color: #1a73e8;
-    font-weight: 400pt;
+    font-weight: 400;
     font-size: 25px;
 }
 
 a:hover {
     color: #0b57d0;
-    font-weight: 900pt;
+    font-weight: 900;
 }
 
 a:focus-visible {
@@ -18,7 +43,7 @@ a:focus-visible {
 #party1 {
     background-color: #FFF2F2; 
     border-radius: 15px; 
-    margin: 10px 20px;
+    margin: 10px 10rem;
     padding:5px;
 }
 
@@ -28,4 +53,10 @@ a:focus-visible {
 
 #title {
     text-align: center;
+}
+
+/* Cocktail Party Specific */
+.question {
+    font-weight: 900;
+    font-style: italic;
 }
