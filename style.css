@@ -21,14 +21,17 @@ body {
 .hr {
    border: black solid;
    border-width: 0.05rem;
+   margin:0.05rem
 }
 
 h1 {
     font-size:2rem;
+    margin-bottom: 1rem;
 }
 
 h2 {
-    margin-bottom:0.05rem;
+    margin-top: 0.05rem;
+    margin-bottom: 0rem;
 }
 
 button {
@@ -84,6 +87,11 @@ a:focus-visible {
 
 #button1 {
     text-align: center;
+}
+
+#footer {
+    margin-top:0px;
+    font-size:12px;
 }
 
 /* Guest Specific */
