@@ -1,13 +1,13 @@
 a {
     text-decoration: none;
     color: #1a73e8;
-    font-weight: 600;
-    font-size: 20px;
+    font-weight: 400pt;
+    font-size: 25px;
 }
 
 a:hover {
     color: #0b57d0;
-    text-decoration: none;
+    font-weight: 900pt;
 }
 
 a:focus-visible {
@@ -24,4 +24,8 @@ a:focus-visible {
 
 #party1:hover {
     background-color: #E5E0FF;
+}
+
+#title {
+    text-align: center;
 }
