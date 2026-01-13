@@ -4,13 +4,23 @@ html {
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
-    font-size: 15pt;
-    background-color: #D3CEDF;
+    font-size: 16px;
+    margin: 0;
+    background: linear-gradient(180deg,
+        #8675A9 0%,
+        #A79AC7 45%,
+        #E5E0FF 100%);
+    min-height: 100%;
     color: black;
 }
 
+body {
+    min-height: 100vh;
+}
+
 .hr {
-   border: #9CB4CC solid;
+   border: black solid;
+   border-width: 0.05rem;
 }
 
 h1 {
@@ -18,9 +28,21 @@ h1 {
 }
 
 h2 {
-    margin-bottom:0.25rem;
+    margin-bottom:0.05rem;
 }
 
+button {
+  font: inherit;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 2px solid #7286D3;
+  background: #E5E0FF;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #FFF2F2;
+}
 
 a {
     text-decoration: none;
@@ -42,7 +64,7 @@ a:focus-visible {
 #party1 {
     background-color: #FFF2F2; 
     border-radius: 15px; 
-    margin: 10px 20rem;
+    margin: 10px 15rem;
     padding:5px;
 }
 
@@ -58,4 +80,21 @@ a:focus-visible {
 .question {
     font-weight: 900;
     font-style: italic;
+}
+
+#button1 {
+    text-align: center;
+}
+
+/* Guest Specific */
+#guests {
+    text-align: center;
+}
+
+#guests ul {
+  display: inline-block; /* allows the whole list block to be centered */
+  text-align: left;      /* keeps the list text nicely aligned */
+  padding-left: 0;       /* remove browser default indent */
+  margin: 0;             /* optional: remove default margins */
+  list-style-position: inside; /* puts bullets inside the block */
 }
