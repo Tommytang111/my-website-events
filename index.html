@@ -8,29 +8,57 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Tommy's Events</title>
-    <style>
-        html {
-            background:#8EA7E9;
-            text-align: center;
-        }
-    </style>
 </head>
 
-<body>
-<div style="background-color: #E5E0FF; border: solid #7286D3; padding: 0px; border-radius:20px;">
-    <h1>Events</h1>
-</div>
-<hr />
-<div id="party1">
-    <a class="event past" href="./party1/cocktail-party-1.html">Cocktail Party 1</a>
-</div>
-<div id="party2">
-    <a class="event past" href="./party2/cocktail-party-2.html">Cocktail Party 2</a>
-</div>
-<div id="party3">
-    <a class="event" href="./party3/goodbye-canada.html">Goodbye Canada Party</a>
-</div>
+<body class="home">
+    <main class="home__main">
+        <header class="hero">
+            <p class="hero__kicker">Toronto</p>
+            <h1 class="hero__title">Events</h1>
+            <p class="hero__sub">Bringing people together, one at a time.</p>
+        </header>
 
-    
+        <ul class="events">
+            <li>
+                <a class="ev ev--1 is-past" href="./party1/cocktail-party-1.html">
+                    <span class="ev__no">01</span>
+                    <span class="ev__body">
+                        <span class="ev__name">Cocktail Party 1</span>
+                        <span class="ev__meta">Shalom &amp; Tommy's Cocktail Soir&eacute;e</span>
+                        <span class="ev__date">January 17, 2026</span>
+                    </span>
+                    <span class="ev__status">Past</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="ev ev--2 is-past" href="./party2/cocktail-party-2.html">
+                    <span class="ev__no">02</span>
+                    <span class="ev__body">
+                        <span class="ev__name">Cocktail Party 2</span>
+                        <span class="ev__meta">Zodiac After Dark</span>
+                        <span class="ev__date">March 14, 2026</span>
+                    </span>
+                    <span class="ev__status">Past</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="ev ev--3" href="./party3/goodbye-canada.html">
+                    <span class="ev__no">03</span>
+                    <span class="ev__body">
+                        <span class="ev__name">Goodbye Canada Party</span>
+                        <span class="ev__meta">One last night before Tommy takes off</span>
+                        <span class="ev__date">Sept 12, 2026</span>
+                    </span>
+                    <span class="ev__status ev__status--next">Upcoming</span>
+                </a>
+            </li>
+        </ul>
+
+        <footer class="home__foot">
+            <p>&copy; 2026 Tommy. All rights reserved.</p>
+        </footer>
+    </main>
 </body>
 </html>
