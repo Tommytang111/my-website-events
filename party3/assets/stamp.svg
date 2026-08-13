@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" role="img" aria-label="Departed passport stamp">
+  <g fill="none" stroke="#D8232A" stroke-width="3" stroke-opacity="0.8">
+    <circle cx="70" cy="70" r="60" stroke-dasharray="9 6"/>
+    <circle cx="70" cy="70" r="50"/>
+  </g>
+  <text x="70" y="60" text-anchor="middle"
+        font-family="'Space Mono', 'Courier New', monospace" font-size="20" font-weight="700"
+        fill="#D8232A" fill-opacity="0.85" letter-spacing="2">DEPARTED</text>
+  <text x="70" y="84" text-anchor="middle"
+        font-family="'Space Mono', 'Courier New', monospace" font-size="13"
+        fill="#D8232A" fill-opacity="0.7" letter-spacing="3">YYZ</text>
+  <line x1="26" y1="94" x2="114" y2="94" stroke="#D8232A" stroke-width="2" stroke-opacity="0.6"/>
+</svg>

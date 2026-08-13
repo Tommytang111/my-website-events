@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./party3.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Passenger Manifest &middot; Goodbye Canada Party</title>
+</head>
+<body>
+    <div class="strip">Toronto YYZ &middot; Passenger Manifest &middot; Gate 03</div>
+
+    <div class="wrap">
+        <header class="marquee">
+            <img src="./assets/plane.svg" alt="" class="marquee__art">
+            <h1 class="flap-board">
+                <span class="flap" style="--i:0">M</span>
+                <span class="flap" style="--i:1">A</span>
+                <span class="flap" style="--i:2">N</span>
+                <span class="flap" style="--i:3">I</span>
+                <span class="flap" style="--i:4">F</span>
+                <span class="flap" style="--i:5">E</span>
+                <span class="flap" style="--i:6">S</span>
+                <span class="flap" style="--i:7">T</span>
+            </h1>
+            <img src="./assets/maple-leaf.svg" alt="" class="marquee__art marquee__art--leaf">
+        </header>
+        <p class="tagline">Everyone booked on this flight</p>
+
+        <!-- Add a guest: copy one <li>, bump the seat number -->
+        <ul class="manifest">
+            <li>
+                <span class="seat">001</span>
+                <span class="name">Tommy</span>
+            </li>
+        </ul>
+
+        <p class="manifest-count">1 passenger checked in</p>
+
+        <p class="center">
+            <button class="btn" type="button" onclick="window.location.href='./goodbye-canada.html'">Back to Flight Info</button>
+        </p>
+
+        <footer class="foot">
+            <p>&copy; 2026 Tommy. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

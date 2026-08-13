@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Departing jet">
+  <g fill="none" stroke="#FFB000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <!-- fuselage -->
+    <path d="M14 62 L84 34 a7 7 0 0 0 -5 -13 L62 27 L30 12 L20 16 L38 34 L22 40 L12 33 L6 36 Z" fill="#FFB000" fill-opacity="0.12"/>
+    <!-- motion lines -->
+    <path d="M8 76 H44" stroke-opacity="0.55"/>
+    <path d="M20 86 H56" stroke-opacity="0.3"/>
+  </g>
+</svg>

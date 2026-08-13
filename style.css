@@ -162,28 +162,15 @@ button:focus-visible#party2-button{
     text-decoration: line-through underline;
 }
 
-#party1 {
-    background-color: var(--accent-pink); 
-    border-radius: 15px; 
+#party1, #party2, #party3 {
+    background-color: var(--accent-pink);
+    border-radius: 15px;
     margin: 10px 10%;
     padding: 5px;
     transition: all 0.3s ease;
 }
 
-#party1:hover {
-    background-color: var(--light-purple);
-    transform: translateY(-2px);
-}
-
-#party2 {
-    background-color: var(--accent-pink); 
-    border-radius: 15px; 
-    margin: 10px 10%;
-    padding: 5px;
-    transition: all 0.3s ease;
-}
-
-#party2:hover {
+#party1:hover, #party2:hover, #party3:hover {
     background-color: var(--light-purple);
     transform: translateY(-2px);
 }

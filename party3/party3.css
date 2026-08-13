@@ -1,0 +1,569 @@
+/* ============================================================
+   PARTY 3 — Goodbye Canada Party
+   Self-contained departure-board theme. Deliberately does NOT
+   import ../style.css so nothing here can affect parties 1 & 2.
+   ============================================================ */
+
+:root {
+    --yyz-navy: #0B1B2B;
+    --yyz-deep: #06121E;
+    --yyz-panel: #0F2739;
+    --amber: #FFB000;
+    --amber-dim: #8A6410;
+    --paper: #F4F1E8;
+    --ink: #14212E;
+    --leaf-red: #D8232A;
+
+    --rule: rgba(255, 176, 0, 0.22);
+    --mono: "Space Mono", "Courier New", monospace;
+    --display: "Oswald", "Arial Narrow", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--yyz-navy);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    line-height: 1.65;
+    background:
+        radial-gradient(90rem 40rem at 50% -10rem, rgba(255, 176, 0, 0.10), transparent 70%),
+        linear-gradient(180deg, var(--yyz-navy) 0%, var(--yyz-deep) 100%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+.wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.25rem 4rem;
+}
+
+/* ---------- Terminal strip ---------- */
+
+.strip {
+    background: var(--yyz-deep);
+    border-bottom: 1px solid var(--rule);
+    color: var(--amber);
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 0.7rem 1.25rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.strip::before {
+    content: "\25CF";
+    color: var(--leaf-red);
+    margin-right: 0.75em;
+    font-size: 0.7em;
+    vertical-align: middle;
+}
+
+/* ---------- Split-flap headline ---------- */
+
+.marquee {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.75rem, 4vw, 2.5rem);
+    padding: 3rem 0 1rem;
+}
+
+.marquee__art {
+    width: clamp(52px, 11vw, 96px);
+    height: auto;
+    flex-shrink: 0;
+    animation: drift 5s ease-in-out infinite;
+}
+
+.marquee__art--leaf {
+    animation-delay: -2.5s;
+}
+
+@keyframes drift {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50%      { transform: translateY(-12px) rotate(2deg); }
+}
+
+.flap-board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(1.75rem, 8.5vw, 4.75rem);
+    line-height: 1;
+    letter-spacing: 0.01em;
+    margin: 0;
+    /* without this the board keeps its full content width as a flex item,
+       pushing the whole page wider than the viewport on narrow screens */
+    min-width: 0;
+}
+
+.flap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0.74em;
+    padding: 0.16em 0.08em 0.2em;
+    color: var(--amber);
+    background: linear-gradient(180deg, #123048 0 50%, var(--yyz-deep) 50% 100%);
+    border-radius: 5px;
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 176, 0, 0.16),
+        0 8px 18px rgba(0, 0, 0, 0.45);
+    animation: flap-in 520ms cubic-bezier(0.2, 0.75, 0.3, 1) both;
+    animation-delay: calc(var(--i, 0) * 55ms);
+}
+
+/* the hairline seam that makes it read as a split-flap */
+.flap::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateY(-1px);
+}
+
+.flap--gap {
+    background: none;
+    box-shadow: none;
+    min-width: 0.3em;
+}
+
+.flap--gap::after {
+    display: none;
+}
+
+@keyframes flap-in {
+    from { transform: rotateX(-88deg); opacity: 0; }
+    to   { transform: rotateX(0deg);   opacity: 1; }
+}
+
+.tagline {
+    text-align: center;
+    color: var(--amber);
+    opacity: 0.75;
+    font-size: clamp(0.72rem, 2.6vw, 0.9rem);
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    margin: 1.4rem 0 3rem;
+}
+
+/* ---------- Boarding pass ---------- */
+
+.pass-zone {
+    position: relative;
+    margin-bottom: 3.5rem;
+}
+
+.pass {
+    display: flex;
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.5);
+    /* no padding: panes own their padding so the perforation notches
+       can sit exactly on the card's top and bottom edges */
+    padding: 0;
+}
+
+.pass__main {
+    flex: 1 1 auto;
+    padding: 1.9rem 1.75rem;
+    min-width: 0;
+}
+
+.pass__stub {
+    position: relative;
+    flex: 0 0 12.5rem;
+    padding: 1.9rem 1.4rem;
+    border-left: 2px dashed rgba(20, 33, 46, 0.32);
+    text-align: center;
+}
+
+/* half-circle punches centred on the perforation line */
+.pass__stub::before,
+.pass__stub::after {
+    content: "";
+    position: absolute;
+    left: -13px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--yyz-navy);
+}
+
+.pass__stub::before { top: -12px; }
+.pass__stub::after  { bottom: -12px; }
+
+.pass__airline {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.pass__airline strong {
+    font-family: var(--display);
+    font-size: 1.35rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.pass__airline span {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.65;
+}
+
+.pass__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem 1.75rem;
+}
+
+.pass__field--wide {
+    grid-column: 1 / -1;
+}
+
+.pass__label {
+    font-size: 0.66rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(20, 33, 46, 0.6);
+    margin: 0 0 0.2rem;
+}
+
+.pass__value {
+    font-family: var(--display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    line-height: 1.25;
+    margin: 0;
+    word-wrap: break-word;
+}
+
+/* obvious placeholder styling — swap the text and drop the class */
+.tbd {
+    color: var(--leaf-red);
+    background: rgba(216, 35, 42, 0.1);
+    border-bottom: 2px dotted var(--leaf-red);
+    padding: 0 0.3rem;
+}
+
+.pass__route {
+    font-family: var(--display);
+    font-size: 2.1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    margin: 0 0 0.35rem;
+}
+
+.pass__stamp {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    margin-top: 1.25rem;
+    transform: rotate(-11deg);
+    opacity: 0.9;
+}
+
+.pass__barcode {
+    height: 42px;
+    margin-top: 1.5rem;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--ink) 0 2px,
+        transparent 2px 4px,
+        var(--ink) 4px 5px,
+        transparent 5px 9px,
+        var(--ink) 9px 12px,
+        transparent 12px 14px
+    );
+}
+
+/* ---------- Departures board rows ---------- */
+
+.board {
+    border-top: 1px solid var(--rule);
+    margin-bottom: 3rem;
+}
+
+.board__head {
+    display: grid;
+    grid-template-columns: 13rem minmax(0, 1fr);
+    gap: 1.5rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--rule);
+    color: var(--amber);
+    font-size: 0.66rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 13rem minmax(0, 1fr);
+    gap: 1.5rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.25s ease;
+}
+
+.row:hover {
+    background: rgba(255, 176, 0, 0.04);
+}
+
+/* the footer supplies its own top rule — avoid doubling up */
+.row:last-child {
+    border-bottom: none;
+}
+
+.row__label {
+    font-family: var(--display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber);
+    align-self: start;
+}
+
+.row__body > :first-child { margin-top: 0; }
+.row__body > :last-child  { margin-bottom: 0; }
+
+.row__body p {
+    margin: 0 0 0.9rem;
+    color: rgba(244, 241, 232, 0.86);
+}
+
+.note {
+    font-size: 0.85rem;
+    color: rgba(244, 241, 232, 0.6);
+}
+
+.etransfer {
+    display: inline-block;
+    font-size: 1.05rem;
+    color: var(--amber);
+    background: rgba(255, 176, 0, 0.09);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 0.35rem 0.7rem;
+    margin: 0.3rem 0 1rem;
+    word-break: break-all;
+}
+
+/* ---------- Buttons & links ---------- */
+
+.btn {
+    font: inherit;
+    display: inline-block;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.78rem;
+    padding: 0.9rem 1.6rem;
+    color: var(--amber);
+    background: transparent;
+    border: 1px solid var(--amber);
+    border-radius: 4px;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.btn:hover {
+    background: var(--amber);
+    color: var(--yyz-deep);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--paper);
+    outline-offset: 3px;
+}
+
+.btn--red {
+    color: var(--paper);
+    border-color: var(--leaf-red);
+    background: rgba(216, 35, 42, 0.22);
+}
+
+.btn--red:hover {
+    background: var(--leaf-red);
+    color: var(--paper);
+}
+
+a {
+    color: var(--amber);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 176, 0, 0.4);
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+a:hover {
+    color: var(--paper);
+    border-bottom-color: var(--paper);
+}
+
+/* ---------- Passenger manifest ---------- */
+
+.manifest {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--rule);
+}
+
+.manifest li {
+    display: grid;
+    grid-template-columns: 5rem minmax(0, 1fr);
+    gap: 1.25rem;
+    align-items: baseline;
+    padding: 0.85rem 0.5rem;
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.25s ease, padding-left 0.25s ease;
+}
+
+.manifest li:hover {
+    background: rgba(255, 176, 0, 0.06);
+    padding-left: 1.1rem;
+}
+
+.manifest .seat {
+    color: var(--amber-dim);
+    font-size: 0.85rem;
+    letter-spacing: 0.14em;
+}
+
+.manifest .name {
+    font-family: var(--display);
+    font-size: 1.15rem;
+    letter-spacing: 0.06em;
+}
+
+.manifest-count {
+    text-align: center;
+    color: var(--amber);
+    opacity: 0.7;
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    margin: 0 0 2rem;
+}
+
+/* ---------- Footer ---------- */
+
+.foot {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.5rem;
+    text-align: center;
+    color: rgba(244, 241, 232, 0.45);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+}
+
+.center {
+    text-align: center;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 760px) {
+    .pass {
+        flex-direction: column;
+    }
+
+    .pass__stub {
+        flex: 1 1 auto;
+        border-left: none;
+        border-top: 2px dashed rgba(20, 33, 46, 0.32);
+    }
+
+    /* perforation is horizontal now — move the punches to the side edges */
+    .pass__stub::before,
+    .pass__stub::after {
+        top: -13px;
+        bottom: auto;
+        left: auto;
+    }
+
+    .pass__stub::before { left: -12px; }
+    .pass__stub::after  { right: -12px; }
+
+    .board__head,
+    .row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.5rem;
+    }
+
+    .board__head span:last-child {
+        display: none;
+    }
+
+    .pass__grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.15rem;
+    }
+
+    .marquee {
+        padding-top: 2rem;
+        gap: 0.6rem;
+    }
+
+    .flap-board {
+        max-width: 100%;
+    }
+
+    .marquee__art {
+        width: 46px;
+    }
+
+    .strip {
+        white-space: normal;
+        letter-spacing: 0.18em;
+    }
+
+    .manifest li {
+        grid-template-columns: 3.75rem minmax(0, 1fr);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}

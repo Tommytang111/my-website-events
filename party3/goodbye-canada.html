@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./party3.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Goodbye Canada Party</title>
+</head>
+<body>
+    <div class="strip">Toronto YYZ &middot; Departures &middot; Final Call</div>
+
+    <div class="wrap">
+        <!-- Split-flap headline -->
+        <header class="marquee">
+            <img src="./assets/plane.svg" alt="" class="marquee__art">
+            <h1 class="flap-board">
+                <span class="flap" style="--i:0">G</span>
+                <span class="flap" style="--i:1">O</span>
+                <span class="flap" style="--i:2">O</span>
+                <span class="flap" style="--i:3">D</span>
+                <span class="flap" style="--i:4">B</span>
+                <span class="flap" style="--i:5">Y</span>
+                <span class="flap" style="--i:6">E</span>
+                <span class="flap flap--gap" aria-hidden="true"> </span>
+                <span class="flap" style="--i:7">C</span>
+                <span class="flap" style="--i:8">A</span>
+                <span class="flap" style="--i:9">N</span>
+                <span class="flap" style="--i:10">A</span>
+                <span class="flap" style="--i:11">D</span>
+                <span class="flap" style="--i:12">A</span>
+            </h1>
+            <img src="./assets/maple-leaf.svg" alt="" class="marquee__art marquee__art--leaf">
+        </header>
+        <p class="tagline">One last night before Tommy takes off</p>
+
+        <!-- Boarding pass: date, location and fare live here -->
+        <section class="pass-zone" aria-label="Event details">
+            <div class="pass">
+                <div class="pass__main">
+                    <div class="pass__airline">
+                        <strong>Goodbye Canada Party</strong>
+                        <span>Boarding Pass</span>
+                    </div>
+
+                    <p class="pass__route">YYZ &rarr; ???</p>
+
+                    <div class="pass__grid">
+                        <div class="pass__field">
+                            <p class="pass__label">Passenger</p>
+                            <p class="pass__value">Tommy</p>
+                        </div>
+
+                        <div class="pass__field">
+                            <!-- PLACEHOLDER: replace with the event date, e.g. Saturday October 3rd, 2026 -->
+                            <p class="pass__label">Departs</p>
+                            <p class="pass__value"><span class="tbd">DATE TBD</span></p>
+                        </div>
+
+                        <div class="pass__field">
+                            <!-- PLACEHOLDER: replace with start and end time, e.g. 8pm to 2am -->
+                            <p class="pass__label">Boarding</p>
+                            <p class="pass__value"><span class="tbd">TIME TBD</span></p>
+                        </div>
+
+                        <div class="pass__field">
+                            <!-- PLACEHOLDER: replace with the cover charge, e.g. $20 -->
+                            <p class="pass__label">Fare</p>
+                            <p class="pass__value"><span class="tbd">$TBD</span></p>
+                        </div>
+
+                        <div class="pass__field pass__field--wide">
+                            <!-- PLACEHOLDER: replace with the full address, unit and buzzer code -->
+                            <p class="pass__label">Terminal &middot; Location</p>
+                            <p class="pass__value"><span class="tbd">LOCATION TBD</span></p>
+                        </div>
+                    </div>
+
+                    <div class="pass__barcode" aria-hidden="true"></div>
+                </div>
+
+                <aside class="pass__stub">
+                    <p class="pass__label">Gate</p>
+                    <p class="pass__value">03</p>
+                    <p class="pass__label" style="margin-top:1rem">Seat</p>
+                    <p class="pass__value">1A</p>
+                    <img src="./assets/stamp.svg" alt="" class="pass__stamp">
+                </aside>
+            </div>
+        </section>
+
+        <!-- Departures board -->
+        <section class="board">
+            <div class="board__head">
+                <span>Info</span>
+                <span>Details</span>
+            </div>
+
+            <div class="row">
+                <div class="row__label">About</div>
+                <div class="row__body">
+                    <p>Tommy is leaving Canada, so this is the send-off. One last night of drinks,
+                       loud music and everyone in the same room before the wheels go up.</p>
+                    <p class="note">Come hungry for company, not for dinner &mdash; eat beforehand.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="row__label">Ground Transport</div>
+                <div class="row__body">
+                    <p>Paid street parking is available on nearby streets, but transit or a rideshare
+                       is strongly recommended &mdash; nobody should be driving home from this one.</p>
+                    <p class="note">Exact parking notes will follow once the location is confirmed.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="row__label">Check-in</div>
+                <div class="row__body">
+                    <p>Reserve your seat by e-transferring the cover to:</p>
+                    <p class="etransfer">tommytang111@gmail.com</p>
+                    <p class="note">Once it lands, your name shows up on the passenger manifest.</p>
+                    <p><button class="btn btn--red" type="button" onclick="window.location.href='./guests.html'">View Manifest</button></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="row__label">Contact</div>
+                <div class="row__body">
+                    <p>Questions, plus-ones, or anything else &mdash; reach Tommy at
+                       <a href="tel:+16476072672">647-607-2672</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="foot">
+            <p>&copy; 2026 Tommy. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
