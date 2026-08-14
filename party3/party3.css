@@ -104,16 +104,25 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5px;
+    /* row gap between wrapped lines, column gap = the space between words */
+    gap: 5px clamp(0.3em, 1.5vw, 0.5em);
     font-family: var(--display);
     font-weight: 700;
-    font-size: clamp(1.75rem, 8.5vw, 4.75rem);
+    font-size: clamp(1.6rem, 7vw, 4.75rem);
     line-height: 1;
     letter-spacing: 0.01em;
     margin: 0;
     /* without this the board keeps its full content width as a flex item,
        pushing the whole page wider than the viewport on narrow screens */
     min-width: 0;
+}
+
+/* One word = one unwrappable group, so the board can only ever break
+   BETWEEN words, never mid-word, at any viewport size. */
+.flap-word {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5px;
 }
 
 .flap {
@@ -143,16 +152,6 @@ body {
     height: 2px;
     background: rgba(0, 0, 0, 0.7);
     transform: translateY(-1px);
-}
-
-.flap--gap {
-    background: none;
-    box-shadow: none;
-    min-width: 0.3em;
-}
-
-.flap--gap::after {
-    display: none;
 }
 
 @keyframes flap-in {
@@ -556,6 +555,24 @@ a:hover {
 
     .manifest li {
         grid-template-columns: 3.75rem minmax(0, 1fr);
+    }
+}
+
+/* Below this width there is not enough room for a long word to sit beside the
+   art, so the headline claims the full row and the art drops underneath it —
+   this is what keeps words from ever having to break. */
+@media (max-width: 560px) {
+    .marquee {
+        flex-wrap: wrap;
+    }
+
+    .flap-board {
+        flex: 1 1 100%;
+        order: -1;
+    }
+
+    .marquee__art {
+        width: 42px;
     }
 }
 
